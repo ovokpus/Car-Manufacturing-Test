@@ -20,7 +20,9 @@ Our objective in this project is to reduce the time that cars spend on the test 
 
 ### Dataset Information
 
-The Datasets provided contains 7 features which can help us determine salaries of various job roles. Salary is thus identified as the target value of our prediction.
+The Train Dataset provided contains 378 columns and 4209 rows which can help us determine the time spent by each Mercedes Benz Unit for testing. The Target Value as identified is labeled as 'y', number of seconds it takes for each unit to pass testing.
+
+The Test Dataset contains 377 columns and 4209 rows.
 
 ## Exploratory Data Analysis
 
@@ -86,7 +88,11 @@ After Scaling we performed Principal Component Analysis as a Dimensionality Redu
 
 ## Model Training and Evaluation
 
-Here we fitted the Scaled and Reduced Dataset with an XGBoost Algorithm, aiming for a 99% explained variance.
+Here we fitted the Scaled and Reduced Dataset with an XGBoost Algorithm, aiming for a 99% explained variance. Model stopped running at RMSE of 3.18895 and r2-score of 0.9341
+
+Here is a snapshot of the predicted values for y - time spent on the bench.
+
+![alt text](https://github.com/ovokpus/Car-Manufacturing-Test/blob/master/images/model_snapshot.jpg)
 
 
 ## Conclusion/Next Steps
