@@ -1,6 +1,11 @@
 # Car-Manufacturing-Test
 (Portfolio Project #2)
 
+---
+<div>
+	<img src="https://github.com/ovokpus/Car-Manufacturing-Test/blob/master/images/mercedes.jpg">
+</div>
+
 
 ## Goal of this project: Reduce the time a Mercedes-Benz spends on the test bench.
 
