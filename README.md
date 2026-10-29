@@ -22,9 +22,17 @@ The first build installs the wheels and fits the model into the API image. After
 - API docs: http://127.0.0.1:8000/docs
 - Health: http://127.0.0.1:8000/health
 
-The form opens on test ID 5, a configuration whose categories all appear in `train.csv`. Press **Predict bench time**. The second button loads test ID 1, whose `X5` value `t` never appears in training. The score still comes back, and the page says that field used the unknown bucket.
-
 `make docker-up` is the same compose command in the background. `make docker-predict` checks health and posts `examples/known_request.json`. `make docker-down` stops the stack.
+
+## Demo
+
+With the compose stack up, the walkthrough is:
+
+1. Open http://127.0.0.1:8501. The form starts on test ID 5 (`X0` is `w`, `X5` is `y`). The sidebar should say the model is loaded: 364 features, 36 principal components, in-sample R² 0.930.
+2. Press **Predict bench time**. The card reads **110.85s** for ID 5, 10.2s slower than the training average of 100.6s.
+3. Press **Load test ID 1 (X5 never seen in training)**, then **Predict bench time** again. The card reads **76.67s**. The amber note says `X5` did not appear in training and was encoded as the shared unknown code (`-1`).
+4. Open http://127.0.0.1:8000/health. The body is JSON with `"status": "ok"` and `"model_loaded": true`.
+5. Open http://127.0.0.1:8000/docs. The page lists `GET /health`, `GET /schema`, and `POST /predict`.
 
 ### Python on your machine
 
