@@ -1,0 +1,55 @@
+# Local prediction service and the form that calls it.
+#
+# `docker compose up --build` trains the model into the API image, then serves:
+#   UI   http://127.0.0.1:8501
+#   API  http://127.0.0.1:8000
+
+services:
+  api:
+    build: .
+    image: greener-manufacturing:local
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PATH: /app/artifacts/model.joblib
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')",
+        ]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    image: greener-manufacturing-ui:local
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: http://api:8000
+      EXAMPLES_DIR: /app/examples
+      BANNER_PATH: /app/assets/banner.jpg
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health')",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped

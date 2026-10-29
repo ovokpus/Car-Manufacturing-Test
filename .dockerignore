@@ -1,0 +1,15 @@
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+*.egg-info
+artifacts
+.ipynb_checkpoints
+images
+tests
+*.md
+!README.md
