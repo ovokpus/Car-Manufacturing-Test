@@ -1,0 +1,11 @@
+# Runtime stack pinned to the versions the training run and the Docker image share.
+# The model artifact is a scikit-learn + XGBoost pickle/JSON pair; bumping either
+# library is a retrain, not a silent upgrade. See PRODUCTIONIZING.md.
+numpy==2.5.4
+pandas==2.3.3
+scikit-learn==1.7.2
+xgboost==2.1.4
+fastapi==0.162.0
+uvicorn==0.54.0
+pydantic==2.14.2
+joblib==1.6.0
