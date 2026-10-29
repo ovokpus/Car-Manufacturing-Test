@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/banner.jpg" alt="Micrometer, piston, gear, spring and stopwatch lined up in a row" width="100%"></p>
+
 # Car-Manufacturing-Test
 (Portfolio Project #2)
 
