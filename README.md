@@ -6,6 +6,10 @@ Every car on this line is a different pile of options. The test bench has to try
 
 The exploration that found the outlier, the zero-variance columns, and the XGBoost fit is still in `Mercedes Benz Greener.ipynb`. The runnable version is a Python package, a training command, a FastAPI service, and a Streamlit form. Docker runs the last two together.
 
+## Business case
+
+Vehicle test benches are expensive, and the time each car spends on one depends on its configuration. This project predicts test time from hundreds of anonymised configuration features, which lets a plant plan bench schedules more tightly. It is built on a public manufacturing competition dataset, so it shows the approach rather than a deployed system. [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md) covers the scenarios, an illustrative ROI model and the limits.
+
 ## Run it
 
 ### Docker, API and form together
