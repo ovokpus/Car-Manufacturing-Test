@@ -1,6 +1,6 @@
-<p align="center"><img src="assets/banner.jpg" alt="Micrometer, piston, gear, spring and stopwatch lined up in a row" width="100%"></p>
-
 # Mercedes-Benz Greener Manufacturing
+
+<p align="center"><img src="assets/banner.jpg" alt="Micrometer, piston, gear, spring and stopwatch lined up in a row" width="100%"></p>
 
 Every car on this line is a different pile of options. The test bench has to try each one, and the time that takes is the column `y` in the Kaggle file: seconds. This project predicts that number from the configuration, so planning does not have to wait for the bench.
 
